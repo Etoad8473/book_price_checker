@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Webcam from 'react-webcam';
 
-const pictureToText = () => {
 
+
+
+const PictureToText = () => {
+
+    const [snapshot, setSnapshot] = useState(null);
     const [finalText, setFinalText] = useState('');
 
     const cleanText = (badText) => {
@@ -11,7 +16,8 @@ const pictureToText = () => {
   return (
     <div>
         
-      {image ? image : <video id="vidArea" autoplay></video>}
+      {/* <video id="vidArea" autoplay srcObject = {returnWebcamStream}></video> */}
+      <Webcam/>
       <canvas id="snapshot"></canvas>
       <button id="capture">Capture!</button>
       <p id="cleanText">{finalText}</p>
@@ -20,4 +26,4 @@ const pictureToText = () => {
   )
 }
 
-export default pictureToText
+export default PictureToText
